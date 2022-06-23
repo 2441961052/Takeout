@@ -1,0 +1,90 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 32
+    buildToolsVersion "32.0.0"
+
+    defaultConfig {
+        applicationId "com.example.takeout"
+        minSdkVersion 21
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+
+        manifestPlaceholders = [
+                //从 3.1.2.0 版本开始，APPID 占位符从 GETUI_APP_ID 切换为 GETUI_APPID
+                //后续所有产品的 APPID 均统一配置为 GETUI_APPID 占位符
+                GETUI_APPID       : "KLVszvwlXA6lG4GCoS4ay9",
+        ]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    implementation 'com.j256.ormlite:ormlite-android:5.1'
+    implementation 'com.j256.ormlite:ormlite-core:5.1'
+
+    implementation "org.jetbrains.anko:anko-commons:0.10.8"
+
+    implementation 'com.squareup.okhttp:okhttp:2.4.0'
+    implementation 'com.squareup.okhttp:okhttp-urlconnection:2.2.0'  //记得加入这一项就ok
+    implementation 'com.squareup.picasso:picasso:2.4.0'
+
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+
+    implementation 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    implementation 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+    implementation 'com.google.code.gson:gson:2.4'
+
+    implementation 'com.getui:gtsdk:3.2.10.0'  //个推SDK
+    implementation 'com.getui:gtc:3.1.9.0'  //个推核心组件
+
+//    implementation 'io.reactivex:rxjava:1.3.0'
+//    implementation 'io.reactivex:rxandroid:1.2.1'
+//    implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+
+    implementation 'com.flipboard:bottomsheet-core:1.5.3'
+    implementation 'com.flipboard:bottomsheet-commons:1.5.3' // optional
+
+    implementation 'se.emilsjolander:stickylistheaders:2.7.0'
+
+}

@@ -1,0 +1,3 @@
+rootProject.name = "Takeout"
+include ':app'
+include ':jiguang'
